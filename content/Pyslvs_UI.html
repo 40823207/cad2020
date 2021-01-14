@@ -133,49 +133,12 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">W10~W14 << <a href='W10~W14.html'>Previous</a> <a href='分球機.html'>Next</a> >> 分球機<br /><h1>參考資料</h1>
-<h4>影片</h4>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/o3X3YhxYA_o" width="560"></iframe></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/Xhwi9SUZg3E" width="560"></iframe></p>
-<p>參考文獻</p>
-<p><strong>Building a clean model tutorial</strong></p>
-<p>(建構清晰模型教程)</p>
-<p>This tutorial will guide you step-by-step into building a clean simulation model, of a robot, or any other item. This is a very important topic, maybe the most important aspect, in order to have a nice looking, fast displaying, fast simulating and stable simulation model.</p>
-<p> </p>
-<p>(本教程將指導您逐步構建機械或任何其他項目的清晰仿真模型。為了具有美觀、快速顯示、快速並穩定的模擬模型，或許這是非常重要的。<span>)</span></p>
-<p> </p>
-<p>To illustrate the model building process, we will be building following manipulator:</p>
-<p> </p>
-<p>(為了說明模型的構建過程，我們將在下面構建機機械：<span>)</span></p>
-<p> </p>
-<p> </p>
-<p> </p>
-<p>[Model of robotic manipulator]</p>
-<p>([機械模型])</p>
-<p> </p>
-<p><strong>Building the visible shapes</strong></p>
-<p><strong>(</strong><strong>建立可見的形狀</strong><strong>)</strong></p>
-<p>When building a new model, first, we handle only the visual aspect of it: the dynamic aspect (its undelying even more simplified/optimized model), joints, sensors, etc. will be handled at a later stage.</p>
-<p>(在構建新模型時，首先，我們僅處理它的視覺方面：動態方面<span>(</span>基本的簡化<span>/</span>優化的模型<span>)</span>、關節、傳感器將在下一步動作做處理。<span>)</span></p>
-<p>We could now directly create primitive shapes in CoppeliaSim with [Menu bar --&gt; Add --&gt; Primitive shape --&gt; ...]. When doing this, we have the option to create <span><a href="https://www.coppeliarobotics.com/helpFiles/en/shapes.htm">pure shapes, or regular shapes</a></span>. Pure shape will be optimized for dynamic interaction, and also directly be dynamically enabled (i.e. fall, collide, but this can be disabled at a later stage). Primitive shapes will be simple meshes, which might not contain enough details or geometric accuracy for our application. Our other option in that case would be to import a mesh from an external application.</p>
-<p>(現在，我們可以在<span>CoppeliaSim</span>中直接創建基本形狀[選單欄<span> --&gt; </span>新增<span> --&gt;</span>基本形狀<span> --&gt; ...]</span>。這樣做時，我們可以選擇創建單純的形狀或常規形狀。純形狀將對動態互動進行優化，並且直接被動態啟用<span>(</span>即下降、碰撞，但這可以在之後禁用<span>)</span>。基本形狀是簡單網格，沒有足夠的細節或幾何精度。在這種情況下，我們的另一種選擇是從外部應用程序導入網格。)</p>
-<p>When importing CAD data from an external application, the most important is to make sure that the CAD model is not too heavy, i.e. doesn't contain too many triangles. This requirement is important since a heavy model will be slow in display, and also slow down various calculation modules that might be used at a later stage (e.g. <span><a href="https://www.coppeliarobotics.com/helpFiles/en/distanceCalculation.htm">minimum distance calculation</a></span>, or <span><a href="https://www.coppeliarobotics.com/helpFiles/en/dynamicsModule.htm">dynamics</a></span>). Following example is typically a no-go (even if, as we will see later, there are means to simplify the data within CoppeliaSim):</p>
-<p>(從外部應用程序導入<span>CAD</span>數據時，最重要的是確保<span>CAD</span>模型檔案不會太大，即不能包含太多三角形。這項要求很重要，因為檔案太大的模型的顯示速度很慢，而且可能還會降低之後使用的各種計算模組，<span>(</span>例如最小距離計算或動力學<span>)</span>，以下示例通常是不可行的（即使我們稍後將看到有方法可以簡化<span>CoppeliaSim</span>中的數據）<span>: )</span></p>
-<p> </p>
-<p>[Complex CAD data (in solid and wireframe)]</p>
-<p>([複雜的CAD數據（實體和線框）])</p>
-<p>Above CAD data is very heavy: it contains many triangles (more than 47'000), which would be ok if we would just use a single instance of it in an empty scene. But most of the time you will want to simulate several instances of a same robot, attach various types of grippers, and maybe have those robots interact with other robots, devices, or the environment. In that case, a simulation scene can quickly become too slow. Generally, we recommend to model a robot with no more than a total of 20'000 triangles, but most of the time 5'000-10'000 triangles would just do fine as well. Remember: less is better, in almost every aspect.</p>
-<p>(上面的<span>CAD</span>數據非常大：它包含許多的三角形（超過<span>47'000</span>個），如果我們只在空的場景中使用單個實例是可以的。但大多數時，需要模擬同一機械多個實例，安裝各種類型的夾手，也或許會讓那些機械許其他的機械做設備上以及環境的互換。在這種情況下，模擬場景時可能很快就會變得太慢。通常，我們建議對不超過<span>2</span>萬個三角形的機器人進行建模，但是在大多數情況下，<span>5 000</span>至<span>10 000</span>個三角形也可以。請記住：越少越好。<span>)</span></p>
-<p>What makes above model so heavy? First, models that contain holes and small details will require much more triangular faces for a correct representation. So, if possible, try to remove all the holes, screws, the inside of objects, etc. from your original model data. If you have the original model data represented as parametric surfaces/objects, then it is most of the time a simple matter of selecting the items and deleting them (e.g. in Solidworks). The second important step is to export the original data with a limited precision: most CAD applications let you specify the level of details of exported meshes. It might also be important to export the objects in several steps, when the drawing consists of large and small objects; this is to avoid having large objects too precisely defined (too many triangles) and small objects too roughly defined (too few triangles): simply export large objects first (by adjusting the desired precision settings), then small objects (by adjusting up precision settings).</p>
-<p>(是什麼使上述模型檔案如此大呢？包含許多的孔急小細節的模型將需要更多的三角形面才能正確表示。因此，如果可以，請嘗試從原始模型數據中刪除所有的孔，螺釘以及模型內部。如果您將原始模型數據表示為參數化曲面<span>/</span>對象，則通常在大多數情況下只需選擇並刪除它們即可（例如<span>Solidworks</span>）。第二個重要的步驟是以有限的精度導出原始數據：大多數<span>CAD</span>應用程式都允許您指定導出網格的細節級別。當工程圖包含了大小物體時，分幾步導出物體也是很重要。這是為了避免大物體定義的太精確（三角形太多）和小物體定義的太粗糙（三角形太少）：只需先導出大物體（調整所需的精度設置），然後導出小物體（調整精度設置）即可。<span>)</span></p>
-<p>CoppeliaSim supports currently following CAD data formats: OBJ, STL, DXF, 3DS (Windows only), and Collada. URDF is also supported, but not mentionned here since it is not a pure mesh-based file format.</p>
-<p>(CoppeliaSim當前支持以下CAD數據格式：OBJ，STL，DXF，3DS（僅Windows）和Collada。 還支持URDF，但由於它不是基於純網格的文件格式，因此此處未提及。)</p>
-<p>Now suppose that we have applied all possible simplifications as described in previous section. We might still end-up with a too heavy mesh after import:</p>
-<p> </p>
-<p>(假設現在我們已經應用了上一節描述中的所有簡化。導入後，我們可能最終仍會留下一個過重的網格：)</p>
-<p>[Imported CAD data]</p>
-<p>[導入的CAD數據]</p>
-<br />W10~W14 << <a href='W10~W14.html'>Previous</a> <a href='分球機.html'>Next</a> >> 分球機</div>
+    <div id="tipue_search_content">W7~W9 << <a href='W7~W9.html'>Previous</a> <a href='HW3.html'>Next</a> >> HW3<br /><h1>Pyslvs_UI</h1>
+<h4>下載Pyslvs_UI並使用Pyslvs_UI畫連桿使其運作</h4>
+<p></p>
+<p><img alt="" height="274" src="https://40823236.github.io/cad2020/images/%E9%80%A3%E8%B6%95.png" width="384"/></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/CXG-GJtpkQk" width="560"></iframe></p>
+<br />W7~W9 << <a href='W7~W9.html'>Previous</a> <a href='HW3.html'>Next</a> >> HW3</div>
         
     <!-- footer -->
       <div class="container">
